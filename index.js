@@ -22,6 +22,12 @@ const run = async () => {
             const result = await cursor.toArray();
             res.send(result);
         })
+
+        app.post('/products', async (req, res) => {
+            const insertedProducts = req.body;
+            const result = await products.insertOne(insertedProducts);
+            res.send(result);
+        })
     }
     finally {
 
